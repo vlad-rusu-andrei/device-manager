@@ -15,7 +15,9 @@ namespace DeviceManager.manager.repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=DeviceManagerDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(
+                "Server=localhost\\SQLEXPRESS;Database=DeviceManagerDb;Trusted_Connection=True;TrustServerCertificate=True;"
+            );
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
