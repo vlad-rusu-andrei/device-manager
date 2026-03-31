@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace DeviceManager.manager.entity
 {
-    enum Type
+    public enum Type
     {
         Phone,
         Tablet
     }
 
-    internal class Device
+    public class Device
     {
+        private uint _id;
         private string name;
         private string manufacturer;
         private Type type;
@@ -41,46 +42,24 @@ namespace DeviceManager.manager.entity
             this.description = Description;
         }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public uint Id { get; set; }
 
-        public string Manufacturer
-        {
-            get { return manufacturer; }
-            set { manufacturer = value; }
-        }
+        public string Name { get; set; }
 
-        public Type Type
+        public string Manufacturer { get; set; }
+
+        public Type Type 
         {
             get { return type; }
             set { type = value; }
         }
 
-        public string Processor
-        {
-            get { return processor; }
-            set { processor = value; }
-        }
+        public string Processor { get; set; }
 
-        public string Os
-        {
-            get { return os; }
-            set { os = value; }
-        }
+        public string Os {  get; set; }
 
-        public int Ram
-        {
-            get { return ram; }
-            set { ram = value; }
-        }
+        public int Ram {  get; set; }
 
-        public string Description
-        {
-            get { return description; }
-            set { description = value; }
-        }
+        public string Description {  get; set; }
     }
 }

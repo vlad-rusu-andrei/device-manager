@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace DeviceManager.manager.entity
 {
-    struct Location
+    public class Location
     {
         string City;
         string Street;
         uint Number;
     }
 
-    internal class User
+    public class User
     {
+        private uint _id;
         private string name;
         private bool role = false; // normally a user
         private Location location;
@@ -28,17 +29,11 @@ namespace DeviceManager.manager.entity
             this.location = Loc;
         }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public uint Id { get; set; }
 
-        public bool Role
-        {
-            get { return role; }
-            set { role = value; }
-        }
+        public string Name { get; set; }
+
+        public bool Role {  get; set; }
 
         public Location Location
         {
