@@ -7,11 +7,11 @@ namespace DeviceManagerWeb.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class DeviceController : ControllerBase
+    public class DevicesController : ControllerBase
     {
         private readonly DeviceService _deviceService;
 
-        public DeviceController(DeviceService deviceService)
+        public DevicesController(DeviceService deviceService)
         {
             _deviceService = deviceService;
         }
