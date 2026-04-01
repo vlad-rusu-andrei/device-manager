@@ -9,14 +9,15 @@ namespace DeviceManager.manager.dto
 {
     public class UserDTO
     {
-        public int Id { get; set; }
+        public uint Id { get; set; }
         public string? Name { get; set; }
         public Location? Location { get; set; }
 
         public UserDTO() { }
 
-        public UserDTO(string name, Location location)
+        public UserDTO(uint id, string name, Location location)
         {
+            Id = id;
             Name = name;
             Location = location;
         }

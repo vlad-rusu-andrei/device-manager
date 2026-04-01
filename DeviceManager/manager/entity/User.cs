@@ -11,6 +11,15 @@ namespace DeviceManager.manager.entity
         public string City { get; set; }
         public string Street { get; set; }
         public string Number { get; set; }
+
+        public Location() {}
+
+        public Location(string city, string street, string number)
+        {
+            City = city;
+            Street = street;
+            Number = number;
+        }
     }
 
     public class User

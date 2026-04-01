@@ -28,8 +28,9 @@ namespace DeviceManager.manager.dto
 
         public DeviceDTO() { }
 
-        public DeviceDTO(string name, string manufacturer, entity.Type type, string os, string osversion, string processor, int ram, string description)
+        public DeviceDTO(uint id, string name, string manufacturer, entity.Type type, string os, string osversion, string processor, int ram, string description)
         {
+            Id = id;
             Name = name;
             Manufacturer = manufacturer;
             Type = type;
