@@ -18,7 +18,7 @@ namespace DeviceManager.manager.service
             _dbContext = dbContext;
         }
 
-        public List<Device> GetDevices()
+        public List<Device> GetAllDevices()
         {
             return _dbContext.Devices.ToList();
         }
