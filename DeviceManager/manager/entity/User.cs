@@ -8,37 +8,28 @@ namespace DeviceManager.manager.entity
 {
     public class Location
     {
-        string City;
-        string Street;
-        uint Number;
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string Number { get; set; }
     }
 
     public class User
     {
-        private uint _id;
-        private string name;
-        private bool role = false; // normally a user
-        private Location location;
-
-        public User() { }
-
-        public User(string Name, bool Role, Location Loc)
-        {
-            this.name = Name;
-            this.role = Role;
-            this.location = Loc;
-        }
-
         public uint Id { get; set; }
 
         public string Name { get; set; }
 
-        public bool Role {  get; set; }
+        public bool Role { get; set; }
 
-        public Location Location
+        public Location Location { get; set; }
+
+        public User() { }
+
+        public User(string name, bool role, Location location)
         {
-            get { return location; }
-            set { location = value; }
+            Name = name;
+            Role = role;
+            Location = location;
         }
     }
 }

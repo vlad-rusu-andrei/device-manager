@@ -13,6 +13,12 @@ namespace DeviceManager.manager.repository
         public DbSet<Device> Devices { get; set; }
         public DbSet<User> Users { get; set; }
 
+        // constructor that accepts options to be used as a context
+        public DeviceManagerDbContext(DbContextOptions<DeviceManagerDbContext> options)
+        : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(

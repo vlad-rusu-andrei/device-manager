@@ -14,14 +14,23 @@ namespace DeviceManager.manager.entity
 
     public class Device
     {
-        private uint _id;
-        private string name;
-        private string manufacturer;
-        private Type type;
-        private string os;
-        private string processor;
-        private int ram;
-        private string description;
+        public uint Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Manufacturer { get; set; }
+
+        public Type Type{ get; set; }
+
+        public string Processor { get; set; }
+
+        public string Os { get; set; }
+
+        public string Osversion { get; set; }
+
+        public int Ram { get; set; }
+
+        public string Description { get; set; }
 
         public static string ReturnType(Type T)
         {
@@ -31,35 +40,16 @@ namespace DeviceManager.manager.entity
 
         public Device() { }
 
-        public Device(string Name, string Manufacturer, Type Type, string Os, string Processor, int Ram, string Description)
+        public Device(string name, string manufacturer, Type type, string os, string osversion, string processor, int ram, string description)
         {
-            this.name = Name;
-            this.manufacturer = Manufacturer;
-            this.type = Type;
-            this.os = Os;
-            this.processor = Processor;
-            this.ram = Ram;
-            this.description = Description;
+            Name = name;
+            Manufacturer = manufacturer;
+            Type = type;
+            Os = os;
+            Osversion = osversion;
+            Processor = processor;
+            Ram = ram;
+            Description = description;
         }
-
-        public uint Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Manufacturer { get; set; }
-
-        public Type Type 
-        {
-            get { return type; }
-            set { type = value; }
-        }
-
-        public string Processor { get; set; }
-
-        public string Os {  get; set; }
-
-        public int Ram {  get; set; }
-
-        public string Description {  get; set; }
     }
 }
