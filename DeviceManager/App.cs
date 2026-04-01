@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using DeviceManager.manager.service;
 
 
 namespace DeviceManager
@@ -12,21 +13,19 @@ namespace DeviceManager
     {
         public static void Main(string[] args)
         {
-            var builder = Host.CreateApplicationBuilder(args);
+            var options = new DbContextOptionsBuilder<DeviceManagerDbContext>()
+                .UseSqlServer("Server=localhost\\SQLEXPRESS;Database=DeviceManagerDb;Trusted_Connection=True;TrustServerCertificate=True;")
+                .Options;
 
-            builder.Services.AddDbContext<DeviceManagerDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+            var dbContext = new DeviceManagerDbContext(options);
 
-            var host = builder.Build();
+            var userService = new UserService(dbContext);
+            var deviceService = new DeviceService(dbContext);
 
-            // seeding
-            using (var scope = host.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<DeviceManagerDbContext>();
-                DbSeeder.Seed(context);
-            }
+            DbSeeder.Seed(dbContext);
 
-            host.Run();
+            //var users = userService.GetAllUsers();
+            //Console.WriteLine(users.Count);
         }
     }
 }
