@@ -1,0 +1,11 @@
+<p>devices works!</p>
+<ul>
+  <li *ngFor="let device of devices$ | async">
+    Name : {{ device.name }}<br />
+    Manufacturer: {{ device.manufacturer }}<br />
+    OS: {{ device.os }} {{ device.osversion }}<br />
+    RAM: {{ device.ram }} GB<br />
+    Processor: {{ device.processor }}<br />
+    Description: {{ device.description }}
+  </li>
+</ul>

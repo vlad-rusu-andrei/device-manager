@@ -1,0 +1,9 @@
+<p>users works!</p>
+<ul>
+  <li *ngFor="let user of users$ | async">
+    Name : {{ user.name }}<br />
+    City: {{ user.location.city }}<br />
+    Street: {{ user.location.street }}<br />
+    Number: {{ user.location.number }}<br />
+  </li>
+</ul>
