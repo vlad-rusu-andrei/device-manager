@@ -14,19 +14,14 @@ namespace DeviceManager
     {
         public static void Main(string[] args)
         {
+            // we connect to the db to seed with values
             var options = new DbContextOptionsBuilder<DeviceManagerDbContext>()
                 .UseSqlServer("Server=localhost\\SQLEXPRESS;Database=DeviceManagerDb;Trusted_Connection=True;TrustServerCertificate=True;")
                 .Options;
 
             var dbContext = new DeviceManagerDbContext(options);
 
-            var userService = new UserService(dbContext);
-            var deviceService = new DeviceService(dbContext);
-
             DbSeeder.Seed(dbContext);
-
-            //var users = userService.GetAllUsers();
-            //Console.WriteLine(users.Count);
         }
     }
 }
